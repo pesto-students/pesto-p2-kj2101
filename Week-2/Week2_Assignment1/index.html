@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <heading class="heading-container">
+    <h1 class="page-title">Lorem Ipsum</h2>
+      <h3 class="page-description">Consectetur Adipiscing Elit</h5>
+  </heading>
+  <article class="grid-container">
+    <section class="item1">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec
+      ultrices magna. Orci varius natoque penatibus et magnis dis parturient
+      montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Nullam nec ultrices magna. Orci varius natoque
+      penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    </section>
+    <section class="item2">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec
+      ultrices magna. Orci varius natoque penatibus et magnis dis parturient
+      montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Nullam nec ultrices magna. Orci varius natoque
+      penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    </section>
+    <section class="item3">
+      <img src="https://sambandhah.org/wp-content/uploads/Lorem-Ipsum-alternatives.png" alt="lorem ipsum image" />
+    </section>
+    <section class="item4">
+      <h4 class="item4-title">Lorem ipsum dolor sit amet</h4>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec
+      ultrices magna. Orci varius natoque penatibus et magnis dis parturient
+      montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Nullam nec ultrices magna. Orci varius natoque
+      penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    </section>
+    <section class="item5">
+      <h4 class="item5-title">Lorem ipsum dolor sit amet</h4>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec
+      ultrices magna. Orci varius natoque penatibus et magnis dis parturient
+      montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Nullam nec ultrices magna. Orci varius natoque
+      penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    </section>
+  </article>
+  <div class="form-container">
+    <form onsubmit="formSubmit()">
+      <div class="labelInputFormDiv">
+        <div class="labelFormDiv">
+          <label class="formLabel" for="title">Title</label>
+        </div>
+        <div class="inputRadioFormDiv">
+          <input type="radio" name="title" required><label for="mr">Mr</label>
+          <input type="radio" name="title" required><label for="ms">Ms</label>
+          <input type="radio" name="title" required><label for="ms">Mrs</label>
+        </div>
+      </div>
+      <div class="labelInputFormDiv">
+        <div class="labelFormDiv">
+          <label class="formLabel" for="firstname">First Name</label>
+        </div>
+        <div class="inputFormDiv">
+          <input class="formInput" type="text" name="firstname" placeholder="Your name.." required>
+        </div>
+      </div>
+      <div class="labelInputFormDiv">
+        <div class="labelFormDiv">
+          <label class="formLabel" for="lastname">Last Name</label>
+        </div>
+        <div class="inputFormDiv">
+          <input class="formInput" type="text" name="lastname" placeholder="Your last name.." required>
+        </div>
+      </div>
+      <div class="labelInputFormDiv">
+        <div class="labelFormDiv">
+          <label class="formLabel" for="email">Email</label>
+        </div>
+        <div class="inputFormDiv">
+          <input class="formInput" type="email" name="email" placeholder="Your email.." required>
+        </div>
+      </div>
+      <div class="labelInputFormDiv">
+        <div class="labelFormDiv">
+          <label class="formLabel" for="phone">Phone number</label>
+        </div>
+        <div class="inputFormDiv">
+          <input class="formInput" type="tel" name="phone" pattern="[0-9]{10}" placeholder="10-digit number" required>
+        </div>
+      </div>
+      <div class="labelInputFormDiv">
+        <div class="labelFormDiv">
+          <label class="formLabel" for="password">Password</label>
+        </div>
+        <div class="inputFormDiv">
+          <input class="formInput" type="password" name="password" placeholder="Password" required>
+        </div>
+      </div>
+      <div class="labelInputFormDiv">
+        <div class="labelFormDiv">
+          <label class="formLabel" for="confirmpassword">Confirm Password</label>
+        </div>
+        <div class="inputFormDiv">
+          <input class="formInput" type="password" name="confirmpassword" placeholder="Confirm Password" required>
+        </div>
+      </div>
+
+      <div class="labelSelectFormDiv">
+        <div class="labelFormDiv">
+          <label class="formLabel" for="country">Country</label>
+        </div>
+        <div class="selectFormDiv">
+          <select class="formSelect" id="country" name="country">
+            <option value="australia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+          </select>
+        </div>
+      </div>
+      <div class="checkboxFormDiv">
+        <input type="checkbox" required>I agree to the <a href="index.html">terms and conditions</a>
+      </div>
+      <div class="labelInputFormDiv">
+        <input class="formSubmit" type="submit" value="Submit">
+      </div>
+    </form>
+  </div>
+  <script>
+    function formSubmit() {
+      event.preventDefault()
+    }
+  </script>
+</body>
+
+</html>
