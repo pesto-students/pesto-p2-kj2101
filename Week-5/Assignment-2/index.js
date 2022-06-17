@@ -1,5 +1,6 @@
 function isVowel(char) {
-  return "aeiou".includes(char);
+  const vowelSet=new Set(['a','e','i','o','u'])
+  return vowelSet.has(char);
 }
 function vowelCount(str) {
   const vowelMap = new Map();
@@ -16,4 +17,4 @@ function vowelCount(str) {
   return vowelMap;
 }
 
-console.log(vowelCount("kamaljain"));
+console.log(vowelCount("iiiiiiaaaskdhsoooaa"));
