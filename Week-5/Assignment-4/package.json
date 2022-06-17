@@ -1,0 +1,13 @@
+{
+  "name": "Assignment-4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.18.2",
+    "jest": "^28.1.1"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
