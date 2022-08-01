@@ -1,0 +1,16 @@
+html,
+body,
+#root,
+.room {
+  height: 100%;
+  margin: 0;
+}
+
+.counterContainer {
+  margin: 40px;
+  text-align: center;
+}
+
+button {
+  margin-top: 10px;
+}
