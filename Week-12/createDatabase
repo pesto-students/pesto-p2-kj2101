@@ -1,0 +1,65 @@
+CREATE DATABASE warehouse;
+
+CREATE TABLE cities (city_id INT, city varchar(20), state varchar(20), PRIMARY KEY (city_id));
+
+INSERT INTO cities (city_id, city, state) VALUES (101, 'Pune', 'Maharashtra' );
+
+CREATE TABLE warehouses (wid int, wname varchar(30), LOCATION int, FOREIGN KEY (LOCATION) REFERENCES cities(city_id) ON DELETE CASCADE ON UPDATE CASCADE )
+
+INSERT INTO warehouses (wid, wname, location) VALUES (1001, 'Olive Warehouses', 101);
+
+ALTER TABLE warehouses
+ADD PRIMARY KEY (wid);
+
+CREATE TABLE stores (sid int, store_name varchar(20), LOCATION int, warehouse_id int, FOREIGN KEY (LOCATION) REFERENCES cities(city_id) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (warehouse_id) REFERENCES warehouses(wid) ON DELETE CASCADE ON UPDATE CASCADE);
+
+ALTER TABLE stores
+ADD PRIMARY KEY (sid);
+
+INSERT INTO stores (sid, store_name, LOCATION, warehouse_id) VALUES (10001, 'Revere Store',101, 1001 );
+
+CREATE TABLE customer (cno int, cname varchar(50), address varchar(50), cu_city int, FOREIGN KEY (cu_city) REFERENCES cities(city_id) ON DELETE CASCADE ON UPDATE CASCADE);
+
+ALTER TABLE customer
+ADD PRIMARY KEY (cno);
+
+INSERT INTO customer (cno, cname, address, cu_city) VALUES (100001, 'Samir', 'Balewadi Phata', 101 );
+
+CREATE TABLE items (itemno int, description text, weight decimal(5,2), cost decimal(5,2), PRIMARY KEY (itemno));
+
+INSERT INTO items (itemno, description, weight,cost) VALUES (1000001, 'cricket kit', 500.25, 600);
+
+CREATE TABLE orders (ono int, odate date, cno int, FOREIGN KEY (cno) REFERENCES customer(cno) ON DELETE CASCADE ON UPDATE CASCADE);
+
+ALTER TABLE orders
+ADD PRIMARY KEY (ono);
+
+CREATE Table orderDetails (ono int, itemno int,  quantity int, PRIMARY KEY(ono, itemno), FOREIGN KEY (itemno) REFERENCES items(itemno) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (ono) REFERENCES orders(ono) ON DELETE CASCADE ON UPDATE CASCADE );
+
+INSERT INTO orders (ono, cno, odate) VALUES (10000001, 100001, '2019-05-21');
+
+INSERT INTO orderDetails (ono, itemno, quantity) VALUES (10000001, 1000001, 10);
+
+CREATE TABLE storeInventory (sid int, itemno int, quantity int, PRIMARY KEY(sid, itemno), FOREIGN KEY (itemno) REFERENCES items(itemno) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (sid) REFERENCES stores(sid) ON DELETE CASCADE ON UPDATE CASCADE );
+
+INSERT INTO storeInventory (sid, itemno, quantity) VALUES (10001, 1000001, 10);
+
+INSERT INTO items (itemno, description, weight,cost) VALUES (1000002, 'badminton kit', 510.25, 700), (1000003, 'squash kit', 400.25, 720), (1000004, 'tennis kit', 525.25, 700.50);
+
+INSERT INTO cities (city_id, city, state) VALUES (102, 'Ahmedabad', 'Gujarat' );
+
+INSERT INTO warehouses (wid, wname, location) VALUES (1002, 'Regal Warehouses', 102), (1003, 'Majestic Warehouses', 101);
+
+INSERT INTO customer (cno, cname, address, cu_city) VALUES (100002, 'Mr Patil', 'Wakad Phata', 101 );
+
+INSERT INTO orders (ono, cno, odate) VALUES (10000002, 100002, '2020-06-17');
+
+INSERT INTO orders (ono, cno, odate) VALUES (10000003, 100002, '2020-01-21');
+
+INSERT INTO orderDetails (ono, itemno, quantity) VALUES (10000002, 1000001, 10), (10000002, 1000002, 4), (10000003, 1000003, 5);
+
+DELETE FROM orderDetails WHERE ono=10000002 AND itemno=1000001;
+
+INSERT INTO stores (sid, store_name, LOCATION, warehouse_id) VALUES (10002, 'Serene Store',102, 1003 ), (10003, 'Easy Store',101, 1002 ), (10004, 'Best Store',102, 1003 );
+
+INSERT INTO orderDetails (ono, itemno, quantity) VALUES (10000003, 1000002, 5);
